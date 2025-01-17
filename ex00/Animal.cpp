@@ -33,7 +33,7 @@ Animal::~Animal()
 
 void    Animal::makeSound(void)const
 {
-    std::cout << "UWU" << std::endl;
+    std::cout << "The creator: What sound I am supposed to make UWU!?" << std::endl;
 }
 
 str Animal::getType()const

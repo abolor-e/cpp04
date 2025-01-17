@@ -15,6 +15,8 @@ class Cat : public Animal
 		~Cat();
 
 		void	makeSound(void)const;
+		void setIdeaInBrain(int nbr, str idea);
+		void	getIdeaFromBrain(int nbr);
 };
 
 #endif

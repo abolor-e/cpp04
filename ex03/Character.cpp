@@ -85,7 +85,12 @@ void    Character::unequip(int idx)
         return ;
     }
     else
-    {
-        
-    }
+        this->slot[idx] = NULL; //The unequip() member function must NOT delete the Materia!
+}
+
+void    Character::use(int idx, ICharacter &target)
+{
+    std::cout << this->slot[idx]->getType() << ": ";
+    slot[idx]->use(target);
+    std::cout << std::endl;
 }

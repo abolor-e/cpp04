@@ -19,7 +19,7 @@ int main()
 	// return 0;
 	//Animal *a = new Animal();
 	const Animal *obj[6];
-	std::cout << "...TEST_DECONSTRUCTOR..." << std::endl;
+	std::cout << "...TEST_CONSTRUCTOR..." << std::endl;
 	for (int i = 0; i < 6; i++)
 	{
 		if (i % 2 == 0)
@@ -40,8 +40,13 @@ int main()
 	a->setIdeaInBrain(1, "Second Idea");
 	a->setIdeaInBrain(100, "Some Idea");
 	a->setIdeaInBrain(20, "21st Idea");
+
 	std::cout << std::endl;
 	Dog *b = new Dog(*a);
+
+	std::cout << std::endl;
+	Dog *c = new Dog();
+	*c = *a;
 	std::cout << std::endl;
 	delete (a);
 
@@ -50,4 +55,32 @@ int main()
 	b->getIdeaFromBrain(1);
 	b->getIdeaFromBrain(100);
 	b->getIdeaFromBrain(20);
+	std::cout << std::endl;
+	c->getIdeaFromBrain(0);
+	c->getIdeaFromBrain(1);
+	c->getIdeaFromBrain(100);
+	c->getIdeaFromBrain(20);
+	delete b;
+	delete c;
+
+	std::cout << "CAT" << std::endl;
+	Cat *cat = new Cat();
+	Cat *tmp = new Cat(*cat);
+	Cat *co = new Cat();
+	delete cat;
+	tmp->makeSound();
+	std::cout << tmp->getType() << std::endl;
+	tmp->setIdeaInBrain(1, "Very good idea");
+	tmp->getIdeaFromBrain(0);
+	tmp->getIdeaFromBrain(1);
+	tmp->getIdeaFromBrain(20);
+	tmp->getIdeaFromBrain(1000);
+	*co = *tmp;
+	delete tmp;
+	co->makeSound();
+	std::cout << co->getType() << std::endl;
+	co->getIdeaFromBrain(0);
+	co->getIdeaFromBrain(1);
+	co->getIdeaFromBrain(1000);
+	delete co;
 }

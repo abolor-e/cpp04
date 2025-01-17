@@ -4,7 +4,7 @@ CC			= c++
 
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
-SRCS		= Animal.cpp Dog.cpp Cat.cpp main.cpp
+SRCS		= Animal.cpp Dog.cpp Cat.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

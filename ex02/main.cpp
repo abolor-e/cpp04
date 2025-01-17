@@ -53,4 +53,5 @@ int main()
 	b->getIdeaFromBrain(1);
 	b->getIdeaFromBrain(100);
 	b->getIdeaFromBrain(20);
+	delete b;
 }
