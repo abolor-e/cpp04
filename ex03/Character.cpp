@@ -1,13 +1,13 @@
 #include "Character.hpp"
 
-Character::Character() : name(""), slot()
+Character::Character() :  slot(), name("")
 {
-    std::cout << "Character default constructor called" << std::endl;
+    //std::cout << "Character default constructor called" << std::endl;
 }
 
 Character::Character(str name) : name(name)
 {
-    std::cout << "Character name constructor called" << std::endl;
+    //std::cout << "Character name constructor called" << std::endl;
 }
 
 Character::Character(Character const &obj) : ICharacter(obj), slot()
@@ -20,7 +20,7 @@ Character::Character(Character const &obj) : ICharacter(obj), slot()
         else
             this->slot[i] = NULL;
     }
-    std::cout << "Character copied (copy constructor)" << std::endl;
+    //std::cout << "Character copied (copy constructor)" << std::endl;
 }
 
 Character &Character::operator=(Character const &obj)
@@ -43,13 +43,13 @@ Character &Character::operator=(Character const &obj)
         else
             this->slot[i] = NULL;
     }
-    std::cout << "Character copy assignment operator called" << std::endl;
+    //std::cout << "Character copy assignment operator called" << std::endl;
     return (*this);
 }
 
 Character::~Character()
 {
-    std::cout << "Character deconstructor called" << std::endl;
+    //std::cout << "Character deconstructor called" << std::endl;
     for (int i = 0; i < 4; i++)
     {
         if (this->slot[i])
@@ -90,7 +90,19 @@ void    Character::unequip(int idx)
 
 void    Character::use(int idx, ICharacter &target)
 {
-    std::cout << this->slot[idx]->getType() << ": ";
+    if (idx > 3 || idx < 0)
+    {
+        std::cout << "Choose between 0 - 3 index" << std::endl;
+        return ;
+    }
+    if (slot[idx] == NULL)
+    {
+        std::cout << "Not usable slot (EMPTY)" << std::endl;
+        return ;
+    }
+    std::cout << name << ": ";
     slot[idx]->use(target);
     std::cout << std::endl;
+    delete (this->slot[idx]);
+    this->slot[idx] = NULL;
 }

@@ -2,6 +2,9 @@
 # define ICHARACTER_HPP
 
 #include "AMateria.hpp"
+typedef std::string str;
+
+class AMateria;
 
 class ICharacter
 {

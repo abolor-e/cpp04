@@ -6,6 +6,7 @@
 #include "ICharacter.hpp"
 
 typedef std::string str;
+class ICharacter;
 
 class AMateria
 {
